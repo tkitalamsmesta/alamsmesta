@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TKIT Alam S'mesta - Beranda</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      .hero-bg {
+        background-image: url("bc.png");
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body class="h-full bg-gray-50 font-sans">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-1000">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-3"
+              >
+                <span class="text-white font-bold text-lg"
+                  ><img src="logo.png"
+                /></span>
+              </div>
+              <div>
+                <p class="text-xs text-gray-600">
+                  Yayasan Intan Pakuan Nusantara
+                </p>
+                <h1 class="text-xl font-bold text-gray-800">
+                  TKIT Alam S'mesta
+                </h1>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a
+                href="#beranda"
+                data-section="beranda"
+                class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="#profil"
+                data-section="profil"
+                class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Profil Sekolah</a
+              >
+              <a
+                href="#akademik"
+                data-section="akademik"
+                class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Akademik</a
+              >
+              <a
+                href="#galeri"
+                data-section="galeri"
+                class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Galeri</a
+              >
+              <a
+                href="#kontak"
+                data-section="kontak"
+                class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Kontak</a
+              >
+              <a
+                href="#ppdb"
+                data-section="ppdb"
+                class="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+                >PPDB</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-100"
+      >
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-2"
+              >
+                <span class="text-white font-bold"><img src="logo.png" /></span>
+              </div>
+              <span class="font-bold text-gray-800">TKIT Alam S'mesta</span>
+            </div>
+            <button
+              id="close-menu-btn"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <nav class="space-y-2">
+            <a
+              href="#beranda"
+              data-section="beranda"
+              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+              >Beranda</a
+            >
+            <a
+              href="#profil"
+              data-section="profil"
+              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+              >Profil Sekolah</a
+            >
+            <a
+              href="#akademik"
+              data-section="akademik"
+              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+              >Akademik</a
+            >
+            <a
+              href="#galeri"
+              data-section="galeri"
+              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+              >Galeri</a
+            >
+            <a
+              href="#kontak"
+              data-section="kontak"
+              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+              >Kontak</a
+            >
+            <a
+              href="#ppdb"
+              data-section="ppdb"
+              class="block px-3 py-2 text-white bg-green-600 hover:bg-green-700 rounded-md font-medium transition-colors"
+              >PPDB</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+      <section id="beranda" class="hero-bg text-white bg-cover bg-center py-48">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+              Selamat Datang di<br />
+              <span class="text-yellow-300">TKIT Alam S'mesta</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+              Taman Kanak-kanak Islam Terpadu yang mengembangkan potensi anak
+              dengan pendekatan alam dan nilai-nilai Islami
+            </p>
+            <div class="space-x-4">
+              <a
+                href="#ppdb"
+                class="bg-yellow-400 text-gray-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-300 transition-colors inline-block"
+              >
+                Daftar Sekarang
+              </a>
+              <a
+                href="#profil"
+                class="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-800 transition-colors inline-block"
+              >
+                Pelajari Lebih Lanjut
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. Mengapa Memilih Kami -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Mengapa Memilih TKIT Alam S'mesta?
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Kami berkomitmen memberikan pendidikan terbaik dengan pendekatan
+              holistik yang mengintegrasikan alam, teknologi, dan nilai-nilai
+              Islam
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              class="text-center card-hover bg-white p-6 rounded-xl shadow-md"
+            >
+              <div
+                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl">🌿</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-3">
+                Pembelajaran Berbasis Alam
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Eksplorasi langsung dengan alam sebagai laboratorium
+                pembelajaran yang menyenangkan
+              </p>
+            </div>
+
+            <div
+              class="text-center card-hover bg-white p-6 rounded-xl shadow-md"
+            >
+              <div
+                class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl">📖</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-3">
+                Adab Sebelum Ilmu
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Mengutamakan pembentukan karakter dan akhlak mulia sebelum
+                transfer pengetahuan
+              </p>
+            </div>
+
+            <div
+              class="text-center card-hover bg-white p-6 rounded-xl shadow-md"
+            >
+              <div
+                class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl">🎯</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-3">
+                Pembelajaran Sentra
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Metode pembelajaran terpusat yang mengoptimalkan potensi anak di
+                setiap area perkembangan
+              </p>
+            </div>
+
+            <div
+              class="text-center card-hover bg-white p-6 rounded-xl shadow-md"
+            >
+              <div
+                class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl">👥</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800 mb-3">
+                Guru Profesional
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Tim pengajar berpengalaman dan bersertifikat yang peduli
+                terhadap perkembangan setiap anak
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visi Misi Section -->
+      <section id="profil" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Visi & Misi
+            </h2>
+            <p class="text-lg text-gray-600">
+              Landasan filosofi pendidikan kami dalam membentuk generasi masa
+              depan
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Visi -->
+            <div
+              class="bg-gradient-to-br from-blue-50 to-green-50 p-8 rounded-2xl card-hover"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-2xl">🎯</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">Visi Kami</h3>
+              </div>
+              <p class="text-gray-700 text-lg leading-relaxed italic">
+                "Membangun generasi shalih, cerdas, mandiri, tangguh, berakhlak
+                mulia dan peduli lingkungan melalui pendidikan Islam terpadu
+                yang mengutamakan adab sebelum ilmu serta berbasis alam."
+              </p>
+            </div>
+
+            <!-- Misi -->
+            <div
+              class="bg-gradient-to-br from-green-50 to-yellow-50 p-8 rounded-2xl card-hover"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-2xl">🚀</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">Misi Kami</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <span
+                    class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0"
+                    >1</span
+                  >
+                  <p class="text-gray-700">
+                    Menanamkan nilai-nilai keimanan, akhlak mulia, adab dan
+                    karakter islami sejak usia dini melalui pembelajaran yang
+                    berlandaskan Al-Qur'an dan Sunnah, serta pembiasaan ibadah
+                    dan adab dalam kehidupan sehari-hari.
+                  </p>
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0"
+                    >2</span
+                  >
+                  <p class="text-gray-700">
+                    Menyelenggarakan pendidikan holistik berbasis alam yang
+                    mengembangkan seluruh potensi anak — spiritual, intelektual,
+                    emosional, sosial, dan fisik — melalui metode bermain,
+                    eksplorasi, dan pengalaman langsung yang menyenangkan dan
+                    kontekstual.
+                  </p>
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0"
+                    >3</span
+                  >
+                  <p class="text-gray-700">
+                    Membangun kemandirian, ketangguhan, dan kepedulian
+                    lingkungan anak melalui program unggulan tani dan ternak
+                    terpadu, kegiatan berbasis proyek, serta pembelajaran yang
+                    mengasah keterampilan hidup dan cinta terhadap alam sebagai
+                    ciptaan Allah.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Sistem Pembelajaran (dengan popup seperti galeri) -->
+      <section id="akademik" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Sistem Pembelajaran Sentra
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              Kami menggunakan metode pembelajaran sentra (terpusat) yang
+              memungkinkan anak mengeksplorasi dan mengembangkan potensi mereka
+              secara optimal di setiap area perkembangan
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div
+              class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra1')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">🎭</span>
+                <h3 class="text-xl font-bold">Sentra Karakter</h3>
+                <p class="text-sm opacity-90">Bermain peran & simulasi</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-green-400 to-green-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra2')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">🧩</span>
+                <h3 class="text-xl font-bold">Sentra Balok</h3>
+                <p class="text-sm opacity-90">Konstruksi & logika</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra3')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">🎨</span>
+                <h3 class="text-xl font-bold">Sentra Persiapan</h3>
+                <p class="text-sm opacity-90">Mari Bersiap untuk masadepan</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra4')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">🌿</span>
+                <h3 class="text-xl font-bold">Sentra Bahan Alam</h3>
+                <p class="text-sm opacity-90">Ayo Mengeksplorasi alam</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-red-400 to-red-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra5')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">🏃</span>
+                <h3 class="text-xl font-bold">Sentra Olah Tubuh</h3>
+                <p class="text-sm opacity-90">Tubuh sehat dan gembira</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-xl h-64 flex items-center justify-center card-hover cursor-pointer"
+              onclick="openSentraModal('sentra6')"
+            >
+              <div class="text-center text-white">
+                <span class="text-6xl mb-4 block">📚</span>
+                <h3 class="text-xl font-bold">Sentra IMTAQ</h3>
+                <p class="text-sm opacity-90">Iman dan Taqwa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Program Unggulan -->
+      <section class="py-32 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Program Unggulan Kami
+            </h2>
+            <p class="text-lg text-gray-600">
+              Program khusus yang menjadi keunggulan TKIT Alam S'mesta dalam
+              membentuk karakter anak
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-2xl">🌱</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                  Program Tani Terpadu
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Anak-anak belajar menanam, merawat, dan memanen tanaman sendiri.
+                Program ini mengajarkan kesabaran, tanggung jawab, dan kecintaan
+                terhadap alam.
+              </p>
+              <ul class="text-gray-600 space-y-2">
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span> Kebun sayuran
+                  organik
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span> Kompos dari sampah
+                  organik
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-2xl">🐰</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                  Program Ternak Terpadu
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Memelihara hewan mengajarkan anak tentang kasih sayang, empati,
+                dan tanggung jawab terhadap makhluk hidup lainnya.
+              </p>
+              <ul class="text-gray-600 space-y-2">
+                <li class="flex items-center">
+                  <span class="text-orange-500 mr-2">✓</span> Ayam
+                </li>
+                <li class="flex items-center">
+                  <span class="text-orange-500 mr-2">✓</span> Ikan dalam kolam
+                </li>
+                <li class="flex items-center">
+                  <span class="text-orange-500 mr-2">✓</span> Berkuda
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+              <div class="text-3xl mb-3">🕌</div>
+              <h3 class="font-bold text-gray-800 mb-2">Tahfidz & Adab</h3>
+              <p class="text-gray-600 text-sm">
+                Menghafal Al-Qur'an dan pembelajaran adab sehari-hari sesuai
+                sunnah Rasulullah
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+              <div class="text-3xl mb-3">🏃</div>
+              <h3 class="font-bold text-gray-800 mb-2">Outbound Alam</h3>
+              <p class="text-gray-600 text-sm">
+                Kegiatan outdoor untuk melatih keberanian, kerjasama, dan
+                kecintaan terhadap alam
+              </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+              <div class="text-3xl mb-3">🍳</div>
+              <h3 class="font-bold text-gray-800 mb-2">Cooking Class</h3>
+              <p class="text-gray-600 text-sm">
+                Belajar memasak sederhana untuk mengembangkan kemandirian dan
+                keterampilan hidup
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Galeri Kegiatan Instagram -->
+      <section id="galeri" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Galeri Kegiatan
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Dokumentasi kegiatan seru dan pembelajaran menyenangkan di TKIT
+              Alam S'mesta
+            </p>
+            <div class="flex justify-center items-center space-x-4">
+              <span class="text-2xl">📷</span>
+              <a
+                href="https://instagram.com/tkit_alamS'mesta/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all"
+              >
+                Ikuti Instagram Kami
+              </a>
+              <span class="text-2xl">📷</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Hubungi Kami -->
+      <section id="kontak" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Hubungi Kami
+            </h2>
+            <p class="text-lg text-gray-600">
+              Kami siap membantu Anda dengan informasi lebih lanjut tentang TKIT
+              Alam S'mesta
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Contact Info -->
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <span class="text-xl">📍</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Alamat Sekolah
+                  </h3>
+                  <p class="text-gray-600">
+                    Jalan Cilubang Mekar Komplek Jabon RT. 002 RW. 008
+                    <br />Desa/Kelurahan Situ Gede Kecamatan Bogor Barat
+                    <br />Kota Bogor Provinsi Jawa Barat
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <span class="text-xl">📞</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">WhatsApp</h3>
+                  <p class="text-gray-600">WhatsApp: +62 856-9122-9755</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <span class="text-xl">✉️</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Email</h3>
+                  <p class="text-gray-600">tkitalamsmesta@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0"
+                >
+                  <span class="text-xl">🕐</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Jam Operasional
+                  </h3>
+                  <p class="text-gray-600">
+                    Senin - Jumat: 07.30 - 15.30 WIB<br />Sabtu - Minggu: Tutup
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-50 rounded-xl">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
+              <form id="contactForm" class="space-y-4">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    >Nama Lengkap</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="phone"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    >Nomor Telepon</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="message"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    >Pesan</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Kirim Pesan
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. PPDB -->
+      <section
+        id="ppdb"
+        class="py-32 bg-gradient-to-br from-green-600 to-blue-600 text-white"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              Penerimaan Peserta Didik Baru (PPDB)
+            </h2>
+            <p class="text-xl">Tahun Ajaran 2026/2027</p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 class="text-2xl font-bold mb-6">
+                Mengapa Memilih TKIT Alam S'mesta?
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <span class="text-yellow-300 text-xl mr-3">✓</span>
+                  <p>
+                    Pembelajaran berbasis alam dengan metode sentra yang
+                    terbukti efektif
+                  </p>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-yellow-300 text-xl mr-3">✓</span>
+                  <p>
+                    Mengutamakan pembentukan akhlak dan adab sebelum transfer
+                    ilmu
+                  </p>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-yellow-300 text-xl mr-3">✓</span>
+                  <p>
+                    Program tani dan ternak terpadu untuk membangun karakter
+                    mandiri
+                  </p>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-yellow-300 text-xl mr-3">✓</span>
+                  <p>Fasilitas lengkap dengan lingkungan aman dan nyaman</p>
+                </div>
+                <div class="flex items-start">
+                  <span class="text-yellow-300 text-xl mr-3">✓</span>
+                  <p>
+                    Guru profesional dan berpengalaman dalam pendidikan anak
+                    usia dini
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl">
+              <h3 class="text-2xl font-bold mb-6 text-center">
+                Informasi Pendaftaran
+              </h3>
+
+              <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600"></p>
+                <div class="flex justify-center space-x-4 mt-2">
+                  <a
+                    href="https://wa.me/6285691229755"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                  <a
+                    href="https://drive.google.com/drive/folders/158A3Rwvq4LCvE9VuDne_11NKmPoC33V_?usp=sharing"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors"
+                  >
+                    Brosur
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 text-center">
+            <h3 class="text-2xl font-bold mb-8">
+              Jadwal Penting PPDB 2026/2027
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                <h4 class="font-bold text-lg mb-2">Pendaftaran</h4>
+                <p class="text-yellow-200">1 Nobvember 2025 - 30 April 2026</p>
+              </div>
+              <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                <h4 class="font-bold text-lg mb-2">Pengumuman</h4>
+                <p class="text-yellow-200">15 Mei 2026</p>
+              </div>
+              <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                <h4 class="font-bold text-lg mb-2">Daftar Ulang</h4>
+                <p class="text-yellow-200">16 Mei 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="col-span-2">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-3"
+              >
+                <span class="text-white font-bold text-lg">🌱</span>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400">
+                  Yayasan Intan Pakuan Nusantara
+                </p>
+                <h3 class="text-xl font-bold">TKIT Alam S'mesta</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Mendidik anak dengan pendekatan alam dan nilai-nilai Islam untuk
+              membentuk generasi yang cerdas, kreatif, dan berakhlak mulia.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://web.facebook.com/alam.smesta.641981/"
+                class="text-gray-400 hover:text-white transition-colors"
+                >📘 Facebook</a
+              >
+              <a
+                href="https://instagram.com/tkit_alamS'mesta/"
+                class="text-gray-400 hover:text-white transition-colors"
+                >📷 Instagram</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Menu Utama</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#beranda"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#profil"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Profil Sekolah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#akademik"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Akademik</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#galeri"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Galeri</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Informasi</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#kontak"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Kontak</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ppdb"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >PPDB</a
+                >
+              </li>
+              <li class="text-gray-400">📞 +62 856-9122-9755</li>
+              <li class="text-gray-400">✉️ tkitalamsmesta@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2025 TKIT Alam S'mesta. Semua hak cipta dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div
+      id="galleryModal"
+      class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-xl max-w-2xl w-full max-h-full overflow-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
+            <button
+              onclick="closeModal()"
+              class="text-gray-500 hover:text-gray-700 text-2xl"
+            >
+              &times;
+            </button>
+          </div>
+          <div id="modalContent" class="text-gray-600"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Sentra -->
+    <div
+      id="sentraModal"
+      class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-xl max-w-3xl w-full max-h-full overflow-auto"
+      >
+        <div class="p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 id="sentraTitle" class="text-3xl font-bold text-gray-800"></h3>
+            <button
+              onclick="closeSentraModal()"
+              class="text-gray-500 hover:text-gray-700 text-2xl"
+            >
+              &times;
+            </button>
+          </div>
+          <div id="sentraContent" class="text-gray-600"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenuBtn = document.getElementById("close-menu-btn");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("active");
+      });
+
+      closeMenuBtn.addEventListener("click", function () {
+        mobileMenu.classList.remove("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.remove("active");
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add scroll effect to navigation
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.classList.add("shadow-xl");
+        } else {
+          header.classList.remove("shadow-xl");
+        }
+      });
+
+      // Sentra Modal Functions
+      function openSentraModal(sentraId) {
+        const modal = document.getElementById("sentraModal");
+        const title = document.getElementById("sentraTitle");
+        const content = document.getElementById("sentraContent");
+
+        const sentraData = {
+          sentra1: {
+            title: "Sentra Karakter",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">🎭</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra karakter berfokus mengembangkan sosial-emosional dan nilai-nilai karakter Islami.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">
+        
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-green-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Anak belajar tanggung jawab dengan merawat tanaman atau hewan pilihannya.</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Kejujuran dan kerja sama dalam kegiatan kelompok seperti memanen sayur atau membuat karya bersama.</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Kegiatan berbasis masalah (misal: “Bagaimana jika ayam kehausan?”) untuk mengasah empati dan pengambilan keputusan.</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Cerita teladan Nabi, diskusi ringan tentang sikap baik-buruk.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+          sentra2: {
+            title: "Sentra Balok",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">🧩</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra Balok berfokus kemampuan Logika-matematika, konstruksi, dan kemampuan memecahkan masalah.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">
+            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-blue-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Anak membangun kandang ayam, sawah mini, rumah petani dari balok.</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Bermain peran: pasar hasil tani, alat pertanian, dll.</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Belajar konsep ukuran, perbandingan, dan bentuk dengan konteks nyata dari dunia tani/ternak.</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Membangun cerita berbasis proyek (misal: “Hari ini kita buat kandang kambing dari balok...”).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+          sentra3: {
+            title: "Sentra Persiapan",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">🎨</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra Persiapan berfokus pada Kesiapan membaca, menulis, berhitung, dan keterampilan literasi awal.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">
+                            
+                            <div class="bg-pink-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-pink-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> Kegiatan menulis label tanaman, mencatat jumlah telur ayam, atau menggambar hasil panen.</li>
+                                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> Membuat jurnal sederhana: “Hari ini saya menyiram pohon bayam.”</li>
+                                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> Membaca big book bertema alam dan hewan, atau kisah Nabi dan alam (misal: Nabi Sulaiman dan burung Hud-hud).</li>
+                                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> Menulis nama Allah, kalimat thayyibah, atau menyalin doa harian.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+          sentra4: {
+            title: "Sentra Bahan Alam",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">🌿</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra Bahan Alam mengeksplorasi lingkungan dan sains berbasis bahan-bahan alami.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">
+              
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-green-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Anak diajak mengenal tekstur, warna, bentuk, dan fungsi dari benda alam (tanah, daun, biji, air, batu, dll).</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Proyek sains sederhana: menyemai biji, membuat pupuk kompos, eksperimen menyiram dengan air hujan vs air sumur.</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Kegiatan berkarya: kolase daun, cetak bunga, membangun miniatur kandang dari ranting.</li>
+                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Pembelajaran tauhid rububiyyah: "Air ini milik siapa?" → "Ciptaan Allah".</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+          sentra5: {
+            title: "Sentra Olah Tubuh",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">🏃</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra Olah Tubuh Berfokus pada perkembangan motorik kasar dan koordinasi tubuh.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">                
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-orange-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Kegiatan alam: jalan kaki di kebun, outbound Islami, memanjat, berlari di tanah lapang.</li>
+                                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Kegiatan tani dan ternak: menggembur tanah, menyiram tanaman, memberi makan hewan.</li>
+                                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Latihan barisan sambil murajaah doa, gerakan shalat.</li>
+                                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Menanamkan adab bergerak (misal: tidak lari di dalam kelas, tidak menyakiti hewan).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+          sentra6: {
+            title: "Sentra Imtaq (Iman dan Taqwa)",
+            content: `
+                        <div class="mb-6">
+                            <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                                <span class="text-8xl">📚</span>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-6 text-lg">Sentra Imtaq (Iman dan Taqwa) berfokus pada membentuk keimanan, pembiasaan ibadah, dan akhlak Islami.</p>
+                        
+                        <div class="grid md:grid-cols-1 gap-6 mb-6">                  
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-blue-800 mb-4">Integrasi:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Anak diajak mengenal Allah melalui alam (misal: "Siapa yang menciptakan ayam?" → Allah).</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Praktik wudhu, shalat dhuha berjamaah, hafalan surat pendek dan doa harian dilakukan dalam bentuk kegiatan rutin yang menyenangkan.</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Refleksi setelah kegiatan tani/ternak: “Apa yang kita pelajari dari merawat hewan ciptaan Allah?”</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Cerita nabi, kisah teladan, dan akhlak ditanamkan melalui cerita dan roleplay.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `,
+          },
+        };
+
+        title.textContent = sentraData[sentraId].title;
+        content.innerHTML = sentraData[sentraId].content;
+        modal.classList.remove("hidden");
+      }
+
+      function closeSentraModal() {
+        document.getElementById("sentraModal").classList.add("hidden");
+      }
+
+      // Form Submissions
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show success message
+          const form = e.target;
+          const formData = new FormData(form);
+
+          // Create success message
+          const successDiv = document.createElement("div");
+          successDiv.className =
+            "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4";
+          successDiv.innerHTML = `
+                <strong>Terima kasih!</strong> Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.
+            `;
+
+          form.insertBefore(successDiv, form.firstChild);
+          form.reset();
+
+          // Remove success message after 5 seconds
+          setTimeout(() => {
+            successDiv.remove();
+          }, 5000);
+        });
+
+      document
+        .getElementById("ppdbForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show success message
+          const form = e.target;
+          const formData = new FormData(form);
+
+          // Create success message
+          const successDiv = document.createElement("div");
+          successDiv.className =
+            "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4";
+          successDiv.innerHTML = `
+                <strong>Pendaftaran Berhasil!</strong> Terima kasih telah mendaftar. Tim kami akan menghubungi Anda dalam 1x24 jam untuk proses selanjutnya.
+            `;
+
+          form.insertBefore(successDiv, form.firstChild);
+          form.reset();
+
+          // Remove success message after 5 seconds
+          setTimeout(() => {
+            successDiv.remove();
+          }, 5000);
+        });
+
+      // Close modals when clicking outside
+      document
+        .getElementById("galleryModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+
+      document
+        .getElementById("sentraModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeSentraModal();
+          }
+        });
+
+      document
+        .getElementById("articleModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeArticleModal();
+          }
+        });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'991cfb99a109fdbb',t:'MTc2MTAxMDE1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+
+    <script>
+      //Aktivator Menu
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav a[data-section]");
+
+        function setActiveLink() {
+          let currentSection = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100; // Margin atas
+            const sectionHeight = section.offsetHeight;
+            const id = section.getAttribute("id");
+
+            if (
+              window.scrollY >= sectionTop &&
+              window.scrollY < sectionTop + sectionHeight
+            ) {
+              currentSection = id;
+            }
+          });
+
+          // Update class active di semua link
+          navLinks.forEach((link) => {
+            const section = link.getAttribute("data-section");
+            if (section === currentSection) {
+              link.classList.add("bg-blue-600", "text-white", "font-bold");
+              link.classList.remove("text-gray-700", "hover:bg-gray-100");
+            } else {
+              link.classList.remove("bg-blue-600", "text-white", "font-bold");
+              link.classList.add("text-gray-700", "hover:bg-gray-100");
+            }
+          });
+        }
+
+        // Jalankan saat scroll
+        window.addEventListener("scroll", setActiveLink);
+
+        // Jalanin dulu saat page load
+        setActiveLink();
+      });
+    </script>
+  </body>
+</html>
