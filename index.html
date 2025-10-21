@@ -760,10 +760,11 @@
                   ></textarea>
                 </div>
                 <button
-                  type="submit"
-                  class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  type="button"
+                  id="sendToWhatsApp"
+                  class="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
                 >
-                  Kirim Pesan
+                  📱 Kirim via WhatsApp
                 </button>
               </form>
             </div>
@@ -858,8 +859,10 @@
             </h3>
             <div class="grid md:grid-cols-3 gap-6">
               <div class="bg-white bg-opacity-20 p-6 rounded-xl">
-                <h4 class="font-bold text-lg mb-2">Pendaftaran</h4>
-                <p class="text-yellow-200">1 Nobvember 2025 - 30 April 2026</p>
+                <h4 class="font-bold text-lg mb-2">
+                  Pembukaan Pendaftaran PPDB
+                </h4>
+                <p class="text-yellow-200">1 November 2025</p>
               </div>
               <div class="bg-white bg-opacity-20 p-6 rounded-xl">
                 <h4 class="font-bold text-lg mb-2">Pengumuman</h4>
@@ -884,7 +887,9 @@
               <div
                 class="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-3"
               >
-                <span class="text-white font-bold text-lg">🌱</span>
+                <span class="text-white font-bold text-lg"
+                  ><img src="logo.png"
+                /></span>
               </div>
               <div>
                 <p class="text-sm text-gray-400">
@@ -1167,7 +1172,6 @@
                                 <h4 class="font-bold text-green-800 mb-4">Integrasi:</h4>
                                 <ul class="space-y-2 text-sm">
                                     <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Anak diajak mengenal tekstur, warna, bentuk, dan fungsi dari benda alam (tanah, daun, biji, air, batu, dll).</li>
-                                    <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Proyek sains sederhana: menyemai biji, membuat pupuk kompos, eksperimen menyiram dengan air hujan vs air sumur.</li>
                                     <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Kegiatan berkarya: kolase daun, cetak bunga, membangun miniatur kandang dari ranting.</li>
                                     <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Pembelajaran tauhid rububiyyah: "Air ini milik siapa?" → "Ciptaan Allah".</li>
                                 </ul>
@@ -1190,6 +1194,7 @@
                             <div class="bg-orange-50 p-6 rounded-lg">
                                 <h4 class="font-bold text-orange-800 mb-4">Integrasi:</h4>
                                 <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Proyek sains sederhana: menyemai biji, membuat pupuk kompos, eksperimen menyiram dengan air hujan vs air sumur.</li>
                                     <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Kegiatan alam: jalan kaki di kebun, outbound Islami, memanjat, berlari di tanah lapang.</li>
                                     <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Kegiatan tani dan ternak: menggembur tanah, menyiram tanaman, memberi makan hewan.</li>
                                     <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span> Latihan barisan sambil murajaah doa, gerakan shalat.</li>
@@ -1218,6 +1223,7 @@
                                     <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Praktik wudhu, shalat dhuha berjamaah, hafalan surat pendek dan doa harian dilakukan dalam bentuk kegiatan rutin yang menyenangkan.</li>
                                     <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Refleksi setelah kegiatan tani/ternak: “Apa yang kita pelajari dari merawat hewan ciptaan Allah?”</li>
                                     <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Cerita nabi, kisah teladan, dan akhlak ditanamkan melalui cerita dan roleplay.</li>
+                                    <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Hadist pilihan.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1389,6 +1395,40 @@
         // Jalanin dulu saat page load
         setActiveLink();
       });
+    </script>
+    <script>
+      document
+        .getElementById("sendToWhatsApp")
+        .addEventListener("click", function () {
+          const name = document.getElementById("name").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (!name || !phone || !message) {
+            alert("Silakan isi semua kolom sebelum mengirim ke WhatsApp.");
+            return;
+          }
+
+          // Prepare the WhatsApp message with line breaks (\n)
+          const whatsappMessage = `
+Nama: ${name}
+Telepon: ${phone}
+------------------------
+${message}
+`.trim();
+
+          // Encode the message for URL
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+
+          // WhatsApp Web URL (replace with your number)
+          const waUrl = `https://wa.me/6285691229755?text=${encodedMessage}`;
+
+          // Open WhatsApp in a new tab
+          window.open(waUrl, "_blank");
+
+          // Optional: Send to WhatsApp, then add a confirmation
+          alert("WhatsApp akan segera terbuka dengan pesan yang sudah terisi!");
+        });
     </script>
   </body>
 </html>
